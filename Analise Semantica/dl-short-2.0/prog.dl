@@ -1,0 +1,10 @@
+programa teste inicio
+  inteiro a; real b; booleano c;
+  a = 2;
+  b = 3.1415;
+  c = falso;
+  c = a < b;
+  a = (a+2)*b;
+  se (verdadeiro)
+      escreva(a);
+fim.

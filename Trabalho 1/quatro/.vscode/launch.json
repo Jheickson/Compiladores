@@ -1,0 +1,35 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "ParserJF",
+            "request": "launch",
+            "mainClass": "ParserJF",
+            "projectName": "quatro_6c4d268"
+        },
+        {
+            "type": "java",
+            "name": "TestRecursiveDescentParser",
+            "request": "launch",
+            "mainClass": "TestRecursiveDescentParser",
+            "projectName": "quatro_6c4d268"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Parser",
+            "request": "launch",
+            "mainClass": "Parser",
+            "projectName": "quatro_6c4d268"
+        }
+    ]
+}
