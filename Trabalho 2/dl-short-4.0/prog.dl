@@ -2,6 +2,6 @@ programa teste inicio
   inteiro a; inteiro b; real d; romano c;
   a = 10;
   b = 3;
-  c = 0rVXIIXC;
-  escreva(c);
+  c = 0rMMMMCMXCIX;
+  escreva(a);
 fim.

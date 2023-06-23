@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Map;
 
 public class Lexer {
 	private static final char EOF_CHAR = (char)-1;
@@ -72,14 +74,11 @@ public class Lexer {
 	}
 
 	private boolean isValidRomanNumeral(String romanNumeral) {
-		// Implemente a verificação do número romano aqui
-		// Verifique se a sequência de algarismos romanos forma um número romano válido
-		// e se o valor do número está dentro do intervalo permitido (até 4999)
-		// Retorne true se for válido, false caso contrário
-
-		return true;
-
+		// Validação dos algarismos romanos
+		String romanNumeralPattern = "^(?i)(?=.)M*(D?C{0,3}|C[DM])(L?X{0,3}|X[LC])(V?I{0,3}|I[VX])$";
+		return romanNumeral.matches(romanNumeralPattern);
 	}
+
 
 	public Token nextToken() {
 		while (isWhitespace(peek)) nextChar();
@@ -140,10 +139,10 @@ public class Lexer {
 
 				}
 
-				// TODO Criar o validador de numerais romanos
 				if (!isValidRomanNumeral(romanNumeral)) {
 
 					validRomanNumeral = false;
+					System.err.println("Romano Inválido: " + romanNumeral);
 
 				}
 
@@ -152,7 +151,7 @@ public class Lexer {
 					System.out.println(romanNumeral);
 					return new Token(Tag.LIT_ROMANO, romanNumeral);
 
-				} // TODO Invalid Roman Numeral
+				}
 				else {
 
 					System.err.println("Numeral Romano inválido: " + romanNumeral);
