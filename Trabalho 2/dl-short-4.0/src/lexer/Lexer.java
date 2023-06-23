@@ -67,6 +67,10 @@ public class Lexer {
 		return (isIdStart(c) || Character.isDigit(c));
 	}
 
+	private boolean isRomanNumeral(char c) {
+		return "IVXLCDMivxlcdm".indexOf(c) != -1;
+	}
+
 	public Token nextToken() {
 		while (isWhitespace(peek)) nextChar();
 		switch(peek) {
@@ -109,16 +113,55 @@ public class Lexer {
 			return new Token(Tag.RPAREN, ")");
 		case EOF_CHAR:
 			return new Token(Tag.EOF, "");
+
+		case '0':
+			nextChar();
+			
+			if ( peek == 'r') {
+
+				nextChar();
+				String romanNumeral = "";
+				boolean validRomanNumeral = true;
+
+				while (isRomanNumeral(peek)) {
+
+					romanNumeral += peek;
+					nextChar();
+
+				}
+
+				// TODO Criar o validador de numerais romanos
+				// if (!isValidRomanNumeral(romanNumeral)) {
+
+				// 	validRomanNumeral = false;
+
+				// }
+
+				if (validRomanNumeral) {
+
+					return new Token(Tag.LIT_ROMANO, romanNumeral);
+
+				} // TODO Invalid Roman Numeral
+
+			}
+
+			else {
+
+				return new Token(Tag.LIT_INT, "0");
+
+			}
+
+
 		default:
 			if (Character.isDigit(peek)) {
 				String num = "";
-				
+
 				do {
 					num += peek;
 					nextChar();
 				} while( Character.isDigit(peek) );
 				if ( peek != '.' )
-					return new Token(Tag.LIT_INT, num);
+					return new Token(Tag.LIT_INT, num);				
 				do {
 					num += peek;
 					nextChar();
