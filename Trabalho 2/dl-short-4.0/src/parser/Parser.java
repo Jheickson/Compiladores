@@ -204,6 +204,7 @@ public class Parser {
 
 		case LIT_ROMANO:
 			e = new Literal(move(), Tag.ROMANO);
+			break;
 
 		case TRUE: case FALSE:
 			e = new Literal(move(), Tag.BOOL);

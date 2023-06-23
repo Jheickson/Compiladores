@@ -71,6 +71,16 @@ public class Lexer {
 		return "IVXLCDMivxlcdm".indexOf(c) != -1;
 	}
 
+	private boolean isValidRomanNumeral(String romanNumeral) {
+		// Implemente a verificação do número romano aqui
+		// Verifique se a sequência de algarismos romanos forma um número romano válido
+		// e se o valor do número está dentro do intervalo permitido (até 4999)
+		// Retorne true se for válido, false caso contrário
+
+		return true;
+
+	}
+
 	public Token nextToken() {
 		while (isWhitespace(peek)) nextChar();
 		switch(peek) {
@@ -131,17 +141,23 @@ public class Lexer {
 				}
 
 				// TODO Criar o validador de numerais romanos
-				// if (!isValidRomanNumeral(romanNumeral)) {
+				if (!isValidRomanNumeral(romanNumeral)) {
 
-				// 	validRomanNumeral = false;
+					validRomanNumeral = false;
 
-				// }
+				}
 
 				if (validRomanNumeral) {
 
+					System.out.println(romanNumeral);
 					return new Token(Tag.LIT_ROMANO, romanNumeral);
 
 				} // TODO Invalid Roman Numeral
+				else {
+
+					System.err.println("Numeral Romano inválido: " + romanNumeral);
+
+				}
 
 			}
 

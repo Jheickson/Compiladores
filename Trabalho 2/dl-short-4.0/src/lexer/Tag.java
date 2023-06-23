@@ -16,7 +16,7 @@ public enum Tag {
 	//Symbols
 	SEMI("SEMI"), DOT("DOT"), LPAREN("LPAREN"), RPAREN("RPAREN"),
 	//Literals and Identifiers
-	LIT_INT("LIT_INT"), LIT_REAL("LIT_REAL"), LIT_ROMANO("ROMANO"), ID("ID"), 
+	LIT_INT("LIT_INT"), LIT_REAL("LIT_REAL"), LIT_ROMANO("LIT_ROMANO"), ID("ID"), 
 	TRUE("TRUE"), FALSE("FALSE"),
 	//Others
 	EOF("EOF"), UNK("UNK"), TEMP("TEMP");
@@ -41,7 +41,7 @@ public enum Tag {
 	}
 
 	public boolean isRoman() {
-		return this == Tag.LIT_ROMANO;
+		return this == Tag.ROMANO;
 	}
 
 	public boolean isBool() {

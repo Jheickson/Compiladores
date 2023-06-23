@@ -14,7 +14,8 @@ public class Assign extends Stmt {
 		if ( check(i.type(), e.type() ) == null )
 			error("valor de expressão "
 					+ "incompatível com o "
-					+ "tipo da variável");
+					+ "tipo da variável \n"
+					+ "ID " + i.type() + " Expr " + e.type());
 		id = i;
 		expr = e;
 		addChild(id);
@@ -28,6 +29,8 @@ public class Assign extends Stmt {
 			return Tag.INT;
 		else if (t1.isBool() && t2.isBool())
 			return Tag.BOOL;
+		else if (t1.isRoman() && t2.isRoman())
+			return Tag.ROMANO;
 		return null;
 	}
 
@@ -47,4 +50,4 @@ public class Assign extends Stmt {
 	public String toString() {
 		return Tag.ASSIGN.toString();
 	}
-}
+} 
