@@ -31,6 +31,7 @@ public class Lexer {
 		keywords.put("verdadeiro", Tag.TRUE);
 		keywords.put("falso", Tag.FALSE);
 		keywords.put("inteiro", Tag.INT);
+		keywords.put("romano", Tag.ROMANO);
 		keywords.put("real", Tag.REAL);
 		keywords.put("booleano", Tag.BOOL);
 	}
@@ -111,18 +112,21 @@ public class Lexer {
 		default:
 			if (Character.isDigit(peek)) {
 				String num = "";
+				
 				do {
 					num += peek;
 					nextChar();
 				} while( Character.isDigit(peek) );
-				if ( peek != '.' ) 
+				if ( peek != '.' )
 					return new Token(Tag.LIT_INT, num);
 				do {
 					num += peek;
 					nextChar();
 				} while ( Character.isDigit(peek) );
 				return new Token(Tag.LIT_REAL, num);
-			} else if ( isIdStart(peek)  ) {
+			}
+
+			else if ( isIdStart(peek)  ) {
 				String id = "";
 				do {
 					id += peek;

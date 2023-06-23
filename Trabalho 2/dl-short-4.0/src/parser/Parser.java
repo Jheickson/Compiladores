@@ -100,7 +100,7 @@ public class Parser {
 	private Stmt stmt() {
 		switch ( look.tag() ) {
 		case BEGIN: return block();
-		case INT: case REAL: 
+		case INT: case REAL: case ROMANO:
 			case BOOL: return decl();
 		case WRITE: return writeStmt();
 		case ID: return assign();

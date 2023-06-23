@@ -3,7 +3,7 @@ package lexer;
 public enum Tag {
 	//Reserved Words
 	PROGRAM("PROGRAM"), BEGIN("BEGIN"), END("END"),
-	INT("INT"), REAL("REAL"), BOOL("BOOL"),
+	INT("INT"), REAL("REAL"), ROMANO("ROMANO"), BOOL("BOOL"),
 	WRITE("WRITE"), IF("IF"),
 	//Assign
 	ASSIGN("ASSIGN"),
@@ -16,7 +16,7 @@ public enum Tag {
 	//Symbols
 	SEMI("SEMI"), DOT("DOT"), LPAREN("LPAREN"), RPAREN("RPAREN"),
 	//Literals and Identifiers
-	LIT_INT("LIT_INT"), LIT_REAL("LIT_REAL"), ID("ID"),
+	LIT_INT("LIT_INT"), LIT_REAL("LIT_REAL"), LIT_ROMANO("ROMANO"), ID("ID"), 
 	TRUE("TRUE"), FALSE("FALSE"),
 	//Others
 	EOF("EOF"), UNK("UNK"), TEMP("TEMP");
@@ -38,6 +38,10 @@ public enum Tag {
 
 	public boolean isReal() {
 		return this == Tag.REAL;
+	}
+
+	public boolean isRoman() {
+		return this == Tag.LIT_ROMANO;
 	}
 
 	public boolean isBool() {
