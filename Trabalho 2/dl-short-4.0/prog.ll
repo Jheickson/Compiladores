@@ -10,11 +10,11 @@ store i32 0, i32* %a
 store i32 0, i32* %b
 %d = alloca double
 store double 0.0, double* %d
-%c = alloca 
-store  0, * %c
+%c = alloca i32
+store i32 0, i32* %c
 store i32 10, i32* %a
 store i32 3, i32* %b
-store  MMMMCMXCIX, * %c
+store i32 MMMMCMXCIX, i32* %c
 %1 = load i32, i32* %a
 %2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds([4 x i8], [4 x i8]* @str_print_int, i32 0, i32 0), i32 %1)
 ret i32 0

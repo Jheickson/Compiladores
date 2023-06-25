@@ -55,10 +55,12 @@ public final class Emitter {
 
 	//%1 = load i32, i32* %id, align 4
 	public void emitLoad(Expr dest, Expr value) {
+
 		emit( dest + " = load " 
 				+ codeType(dest.type()) + ", "
 				+ codeType(dest.type()) + "* " 
 				+ value);
+
 	}
 
 	/*
@@ -109,9 +111,9 @@ public final class Emitter {
 	public static String codeType(Tag type) {
 		switch (type) {
 		case BOOL: return "i1";
-		case INT: return "i32";
+		case INT: case ROMANO: return "i32";
 		case REAL: return "double";
-		default: return "";
+		default: return "Test";
 		}
 	}
 
