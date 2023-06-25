@@ -8,14 +8,18 @@ define i32 @main() nounwind {
 store i32 0, i32* %a
 %b = alloca i32
 store i32 0, i32* %b
-%d = alloca double
-store double 0.0, double* %d
 %c = alloca i32
 store i32 0, i32* %c
+%d = alloca i32
+store i32 0, i32* %d
 store i32 10, i32* %a
-store i32 3, i32* %b
+store i32 1, i32* %b
 store i32 4999, i32* %c
-%1 = load i32, i32* %c
-%2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds([4 x i8], [4 x i8]* @str_print_int, i32 0, i32 0), i32 %1)
+%1 = load i32, i32* %a
+%2 = load i32, i32* %b
+%3 = add i32 %1, %2
+store i32 %3, i32* %d
+%4 = load i32, i32* %c
+%5 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds([4 x i8], [4 x i8]* @str_print_int, i32 0, i32 0), i32 %4)
 ret i32 0
 }

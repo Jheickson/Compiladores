@@ -3,6 +3,6 @@ programa teste inicio
   a = 10;
   b = 1;
   c = 0rMMMMCMXCIX;
-  d = c + b;
-  escreva(d);
+  d = a + b;
+  escreva(c);
 fim.
