@@ -1,4 +1,5 @@
 A
 
 Criar um método para traduzir os romanos para inteiros e vice-versa
+Adicionar suporte a  operaçoes matematicas com Romanos
 Enviar os valores romanos convertidos para inteiros para o prog.ll
