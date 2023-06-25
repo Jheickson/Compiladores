@@ -11,7 +11,7 @@ public class Bin extends Expr {
 		super(op, null);
 		type = maxType( e1.type(), e2.type() );
 		if ( this.type == null ) 
-			error("tipos incompatíveis");
+			error("tipos incompatíveis\n" + e1.type() + " com " + e2.type());
 		expr1 = e1;
 		expr2 = e2;
 		addChild(expr1);

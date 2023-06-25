@@ -1,7 +1,8 @@
 programa teste inicio
-  inteiro a; inteiro b; real d; romano c;
+  inteiro a; inteiro b; romano c; inteiro d;
   a = 10;
-  b = 3;
+  b = 1;
   c = 0rMMMMCMXCIX;
-  escreva(c);
+  d = c + b;
+  escreva(d);
 fim.

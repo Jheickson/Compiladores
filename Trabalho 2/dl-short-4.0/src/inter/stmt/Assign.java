@@ -41,9 +41,6 @@ public class Assign extends Stmt {
 			code.emitStore(id, e);
 		else {
 			Temp t = new Temp( id.type() );
-
-			System.out.println(id.type() + " " + e.type());
-
 			code.emitConvert(t, e);
 			code.emitStore(id, t);
 		}
