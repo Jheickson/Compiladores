@@ -3,5 +3,5 @@ programa teste inicio
   a = 10;
   b = 3;
   c = 0rMMMMCMXCIX;
-  escreva(a);
+  escreva(c);
 fim.

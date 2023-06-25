@@ -56,10 +56,18 @@ public final class Emitter {
 	//%1 = load i32, i32* %id, align 4
 	public void emitLoad(Expr dest, Expr value) {
 
-		emit( dest + " = load " 
+		if (value.type() == Tag.ROMANO) {
+
+			emit(dest + " = load i32, i32* " + value);
+
+		} else {
+
+			emit( dest + " = load " 
 				+ codeType(dest.type()) + ", "
 				+ codeType(dest.type()) + "* " 
 				+ value);
+
+		}
 
 	}
 
@@ -113,7 +121,7 @@ public final class Emitter {
 		case BOOL: return "i1";
 		case INT: case ROMANO: return "i32";
 		case REAL: return "double";
-		default: return "Test";
+		default: return "";
 		}
 	}
 

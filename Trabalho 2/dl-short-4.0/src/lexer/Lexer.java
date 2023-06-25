@@ -79,6 +79,38 @@ public class Lexer {
 		return romanNumeral.matches(romanNumeralPattern);
 	}
 
+	private int romanToDecimal(String romanNumeral) {
+		// Mapeamento dos valores dos algarismos romanos
+		Map<Character, Integer> romanMap = new HashMap<>();
+		romanMap.put('I', 1);
+		romanMap.put('V', 5);
+		romanMap.put('X', 10);
+		romanMap.put('L', 50);
+		romanMap.put('C', 100);
+		romanMap.put('D', 500);
+		romanMap.put('M', 1000);
+
+		int decimalValue = 0;
+		int prevValue = 0;
+
+		// Iteração reversa para percorrer os algarismos romanos
+		for (int i = romanNumeral.length() - 1; i >= 0; i--) {
+			char currentChar = romanNumeral.charAt(i);
+			int currentValue = romanMap.get(currentChar);
+
+			if (currentValue >= prevValue) {
+				decimalValue += currentValue;
+			} else {
+				decimalValue -= currentValue;
+			}
+
+			prevValue = currentValue;
+		}
+
+		return decimalValue;
+
+	}
+
 
 	public Token nextToken() {
 		while (isWhitespace(peek)) nextChar();
@@ -148,8 +180,12 @@ public class Lexer {
 
 				if (validRomanNumeral) {
 
-					System.out.println(romanNumeral);
-					return new Token(Tag.LIT_ROMANO, romanNumeral);
+					int decimalValue = romanToDecimal(romanNumeral);
+
+					return new Token(Tag.LIT_INT, String.valueOf(decimalValue));
+
+					//System.out.println(romanNumeral);
+					//return new Token(Tag.LIT_ROMANO, romanNumeral);
 
 				}
 				else {

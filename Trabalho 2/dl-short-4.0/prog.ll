@@ -14,8 +14,8 @@ store double 0.0, double* %d
 store i32 0, i32* %c
 store i32 10, i32* %a
 store i32 3, i32* %b
-store i32 MMMMCMXCIX, i32* %c
-%1 = load i32, i32* %a
+store i32 4999, i32* %c
+%1 = load i32, i32* %c
 %2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds([4 x i8], [4 x i8]* @str_print_int, i32 0, i32 0), i32 %1)
 ret i32 0
 }

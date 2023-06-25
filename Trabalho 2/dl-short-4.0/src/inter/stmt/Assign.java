@@ -29,7 +29,7 @@ public class Assign extends Stmt {
 			return Tag.INT;
 		else if (t1.isBool() && t2.isBool())
 			return Tag.BOOL;
-		else if (t1.isRoman() && t2.isRoman())
+		else if (t1.isRoman() && t2.isInt())
 			return Tag.ROMANO;
 		return null;
 	}
@@ -37,10 +37,13 @@ public class Assign extends Stmt {
 	@Override
 	public void gen() {
 		Expr e = expr.gen();
-		if ( id.type() == e.type() )
+		if ( id.type() == e.type() || id.type() == Tag.ROMANO && e.type() == Tag.INT)
 			code.emitStore(id, e);
 		else {
 			Temp t = new Temp( id.type() );
+
+			System.out.println(id.type() + " " + e.type());
+
 			code.emitConvert(t, e);
 			code.emitStore(id, t);
 		}
