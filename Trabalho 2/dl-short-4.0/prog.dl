@@ -1,5 +1,5 @@
 programa teste inicio
-  inteiro a; inteiro b; romano c; inteiro d;
+  inteiro a; inteiro b; romano c; inteiro d; inteiro e;
   a = 19;
   b = 1;
   c = 0rMMMMCMXCIX;
@@ -8,12 +8,8 @@ programa teste inicio
   escreva(b);
   escreva(c);
   escreva(d);
-
-  enquanto (b < a)
-  inicio
-
-    b = b + 1;
-
-  fim;
+  
+  e = c + 1;
+  escreva(e);
 
 fim.

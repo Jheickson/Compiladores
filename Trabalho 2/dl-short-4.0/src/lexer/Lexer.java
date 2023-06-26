@@ -33,7 +33,7 @@ public class Lexer {
 		keywords.put("verdadeiro", Tag.TRUE);
 		keywords.put("falso", Tag.FALSE);
 		keywords.put("inteiro", Tag.INT);
-		keywords.put("romano", Tag.ROMANO);
+		keywords.put("romano", Tag.INT);
 		keywords.put("real", Tag.REAL);
 		keywords.put("booleano", Tag.BOOL);
 	}

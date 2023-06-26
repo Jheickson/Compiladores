@@ -25,4 +25,5 @@ ID			::= LETTER (LETTER | DIGIT)*
 LIT_INT		::= DIGIT+  
 LIT_REAL	::= DIGIT+ . DIGIT+   
 LIT_BOOL	::= verdadeiro | falso  
-TYPE     	::= inteiro | real | booleano  
+LIT_ROMANO  ::= LIT_INT
+TYPE     	::= inteiro | real | booleano | romano
