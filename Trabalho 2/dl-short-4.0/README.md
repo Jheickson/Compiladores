@@ -16,7 +16,7 @@ EXPR				::= EXPR "|" REL | REL
 REL					::= REL < ARITH | REL <= ARITH | REL > ARITH | ARITH  
 ARITH  				::= ARITH + TERM | ARITH - TERM | TERM  
 TERM				::= TERM * FACTOR | FACTOR  
-FACTOR				::= (EXPR) | ID | LIT_INT | LIT_REAL | LIT_BOOL  
+FACTOR				::= (EXPR) | ID | LIT_INT | LIT_REAL | LIT_BOOL | LIT_ROMANO
 
 ## Definições Regulares
 LETTER		::= a | b | ... | z | A | B | ... Z | _  
@@ -25,5 +25,10 @@ ID			::= LETTER (LETTER | DIGIT)*
 LIT_INT		::= DIGIT+  
 LIT_REAL	::= DIGIT+ . DIGIT+   
 LIT_BOOL	::= verdadeiro | falso  
-LIT_ROMANO  ::= LIT_INT
+LIT_ROMANO  ::= 0r LETTER+
 TYPE     	::= inteiro | real | booleano | romano
+
+## Comentários
+Não conseguimos fazer a B e, por consequencia, não conseguimos fazer a C.
+Nós lemos o capítulo do livro e entendemos o funcionamento da tabela de símbolos, porém não conseguimos implementar no compilador.
+Pedimos ajuda de alguns colegas mas ninguém conseguiu ajudar.
